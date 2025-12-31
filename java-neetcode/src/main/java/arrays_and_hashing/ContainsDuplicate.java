@@ -17,7 +17,7 @@ public class ContainsDuplicate {
     }
 
     public static void main(String[] args) {
-        int [] arr = {1,2,3,1};
+        int [] arr = {1,2,3,1,5};
         System.out.println(hasDuplicateWithoutExtraSpace(arr));
     }
 }
