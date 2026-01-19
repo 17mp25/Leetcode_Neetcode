@@ -36,7 +36,7 @@ public class twoSum {
         int target = 9;
         int[] result = twoSum(nums, target);
         int[] resultSorted = twoSum2PointersForSorted(nums, target);
-        System.out.println("Indices: [" + result[0] + ", " + result[1] + "]");
+        System.out.println("Indices : [" + result[0] + ", " + result[1] + "]");
         System.out.println(
                 "Indices (Sorted): [" + resultSorted[0] + ", " + resultSorted[1] + "]");
     }
