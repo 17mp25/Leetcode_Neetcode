@@ -32,7 +32,7 @@ public class twoSum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {2, 7, 9, 11};
+        int[] nums = {2, 7, 9, 11, 13};
         int target = 9;
         int[] result = twoSum(nums, target);
         int[] resultSorted = twoSum2PointersForSorted(nums, target);
