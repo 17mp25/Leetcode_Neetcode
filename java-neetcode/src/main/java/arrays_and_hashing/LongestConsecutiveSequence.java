@@ -18,7 +18,7 @@ public class LongestConsecutiveSequence {
                 int currentStreak = 1;
 
                 while(set.contains(currentNum+1)){//Confusion here added debugger and clarified
-                    currentNum+=1;
+                    currentNum++;
                     currentStreak+=1;
                 }
                 longestStreak = Math.max(longestStreak, currentStreak);
