@@ -53,6 +53,13 @@ public class Employee {
         System.out.println(employee1);
         Employee employee2 = employees.stream().min(Comparator.comparing(Employee::getSalary)).orElse(null);
         System.out.println(employee2);
+        List<String> list = employees.stream().map(Employee::getName).sorted().toList();
+        System.out.println(list);
+        List<String> list1 = employees.stream().map(Employee::getName).sorted(Comparator.reverseOrder()).toList();
+        System.out.println(list1);
+        Employee employee3 = employees.stream().filter(employee -> employee.getSalary() > 90000).findAny().orElse(null);
+        System.out.println(employee3);
+
     }
 
     // Getters
