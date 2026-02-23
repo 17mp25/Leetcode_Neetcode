@@ -1,10 +1,8 @@
 package streams;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Employee {
     int id;
@@ -45,21 +43,66 @@ public class Employee {
 //         employees.stream().filter(e->e.getSalary()>60000).forEach(System.out::println);
 //        Set<Employee> collect = employees.stream().filter(e -> e.department == "IT").collect(Collectors.toSet());
 //        System.out.println(collect);
-        Set<String> collect = employees.stream().map(Employee::getDepartment).collect(Collectors.toSet());
+//        Set<String> collect = employees.stream().map(Employee::getDepartment).collect(Collectors.toSet());
+//        System.out.println(collect);
+//        int sum = employees.stream().mapToInt(Employee::getSalary).sum();
+//        System.out.println(sum);
+//        Employee employee1 = employees.stream().max(Comparator.comparing(Employee::getSalary)).orElse(null);
+//        System.out.println(employee1);
+//        Employee employee2 = employees.stream().min(Comparator.comparing(Employee::getSalary)).orElse(null);
+//        System.out.println(employee2);
+//        List<String> list = employees.stream().map(Employee::getName).sorted().toList();
+//        System.out.println(list);
+//        List<String> list1 = employees.stream().map(Employee::getName).sorted(Comparator.reverseOrder()).toList();
+//        System.out.println(list1);
+//        Employee employee3 = employees.stream().filter(employee -> employee.getSalary() > 90000).findAny().orElse(null);
+//        System.out.println(employee3);
+        List<String> collect = employees.stream().filter(e -> e.isActive())
+                .sorted(Comparator.comparing(Employee::getSalary).reversed()).map(Employee::getName)
+                .collect(Collectors.toList());
         System.out.println(collect);
-        int sum = employees.stream().mapToInt(Employee::getSalary).sum();
-        System.out.println(sum);
-        Employee employee1 = employees.stream().max(Comparator.comparing(Employee::getSalary)).orElse(null);
-        System.out.println(employee1);
-        Employee employee2 = employees.stream().min(Comparator.comparing(Employee::getSalary)).orElse(null);
-        System.out.println(employee2);
-        List<String> list = employees.stream().map(Employee::getName).sorted().toList();
-        System.out.println(list);
-        List<String> list1 = employees.stream().map(Employee::getName).sorted(Comparator.reverseOrder()).toList();
-        System.out.println(list1);
-        Employee employee3 = employees.stream().filter(employee -> employee.getSalary() > 90000).findAny().orElse(null);
-        System.out.println(employee3);
 
+        OptionalDouble average = employees.stream().mapToInt(Employee::getSalary).average();
+        System.out.println(average.orElse(0.0));
+
+        Map<String, Double> collect1 = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.averagingInt(Employee::getSalary)));
+        System.out.println(collect1);
+
+        Map<String, List<Employee>> collect2 = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment));
+        System.out.println(collect2);
+
+        Map<String, Long> collect3 = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+        System.out.println(collect3);
+
+        Map<String, Optional<Employee>> collect4 = employees.stream()
+                .collect(Collectors.groupingBy(Employee::getDepartment,
+                        Collectors.maxBy(Comparator.comparing(Employee::getSalary))));
+        System.out.println(collect4);
+
+        List<Employee> list = employees.stream().filter(e -> e.city == "New York" && e.getSalary() > 60000).toList();
+        System.out.println(list);
+
+        Map<Boolean, List<String>> collect5 = employees.stream()
+                .collect(Collectors.partitioningBy(employee -> employee.getSalary() > 60000,
+                        Collectors.mapping(Employee::getName, Collectors.toList())));
+        System.out.println(collect5);
+
+        Set<Character> set = Set.of('a','e','i','o','u');
+        List<Employee> list1 = employees.stream()
+                .filter(employee -> set.contains(Character.toLowerCase(employee.getName().charAt(0)))).toList();
+        System.out.println(list1);
+
+        Map<String, Integer> collect6 = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,
+                Collectors.summingInt(Employee::getSalary)));
+        System.out.println(collect6);
+
+        List<Integer> list2 = employees.stream().flatMap(employee -> employee.getBankBalance().stream()).toList();
+        System.out.println(list2);
+
+        employees.stream().collect(Collectors.groupingBy())
     }
 
     // Getters
