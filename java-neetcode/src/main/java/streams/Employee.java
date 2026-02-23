@@ -1,7 +1,10 @@
 package streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Employee {
     int id;
@@ -36,7 +39,20 @@ public class Employee {
         );
 
         // Test: Print all employees
-        employees.forEach(System.out::println);
+//         employees.forEach(System.out::println);
+//        System.out.println("//////////////////////////////");
+//        // Test: Filter employees with salary > 60000 and print them
+//         employees.stream().filter(e->e.getSalary()>60000).forEach(System.out::println);
+//        Set<Employee> collect = employees.stream().filter(e -> e.department == "IT").collect(Collectors.toSet());
+//        System.out.println(collect);
+        Set<String> collect = employees.stream().map(Employee::getDepartment).collect(Collectors.toSet());
+        System.out.println(collect);
+        int sum = employees.stream().mapToInt(Employee::getSalary).sum();
+        System.out.println(sum);
+        Employee employee1 = employees.stream().max(Comparator.comparing(Employee::getSalary)).orElse(null);
+        System.out.println(employee1);
+        Employee employee2 = employees.stream().min(Comparator.comparing(Employee::getSalary)).orElse(null);
+        System.out.println(employee2);
     }
 
     // Getters
