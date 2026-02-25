@@ -33,6 +33,7 @@ public class ValidSuduko {
                 {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
                 {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
         };
+
         System.out.println(validSuduko(board)); // Output: false
     }
 }
