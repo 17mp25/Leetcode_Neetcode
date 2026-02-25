@@ -102,7 +102,6 @@ public class Employee {
         List<Integer> list2 = employees.stream().flatMap(employee -> employee.getBankBalance().stream()).toList();
         System.out.println(list2);
 
-        employees.stream().collect(Collectors.groupingBy())
     }
 
     // Getters
