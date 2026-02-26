@@ -17,13 +17,11 @@ public class GroupAnagrams {
             char[] ch = str.toCharArray();
             Arrays.sort(ch);
             String s = new String(ch);
-            if(map.computeIfAbsent(s)) {
-                {
-                    map.put(s, new ArrayList<>());
-                    }
-                map.put(s, map.get(s).add(str));
+            if(!map.containsKey(s)) {
+                map.put(s, new ArrayList<>());
             }
+            map.get(s).add(str);
         }
-        return map;
+        return new ArrayList<>(map.values());
     }
 }
