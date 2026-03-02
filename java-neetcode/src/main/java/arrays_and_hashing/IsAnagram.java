@@ -35,8 +35,8 @@ public class IsAnagram {
     }
 
     public static void main(String[] args) {
-        String s = "anagram";
-        String t = "nagaram";
+        String s = "anagrama";
+        String t = "nagarama";
         System.out.println(isAnagram(s, t)); // true
         System.out.println(isAnagramOptimised(s, t)); // true
     }
