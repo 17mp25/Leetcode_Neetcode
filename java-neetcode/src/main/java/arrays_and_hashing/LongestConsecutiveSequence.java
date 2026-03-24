@@ -5,9 +5,9 @@ import java.util.Set;
 
 public class LongestConsecutiveSequence {
 
-    public static int l(int[] nums){
+    public static int l(int[] numbers){
        Set<Integer> set = new HashSet<>();
-       for(int num : nums){
+       for(int num : numbers){
            set.add(num);
        }
        int longestStreak = 0;
