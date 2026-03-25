@@ -19,7 +19,7 @@ public class LongestSubstring {
     }
 
     public static void main(String[] args) {
-        String s = "abcbcdefghijklkkjzk";
+        String s = "abcbcdefghijk lkkjzk";
         System.out.println(longestSustring(s)); // Output: 3 (for "abc")
     }
 }
