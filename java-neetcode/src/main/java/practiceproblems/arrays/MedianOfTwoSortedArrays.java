@@ -15,11 +15,11 @@ public class MedianOfTwoSortedArrays {
             }
         }
 
-        while (i <m) {
+        while (i < m) {
             merged[k++] = nums1[i++];
         }
 
-        while (j <n) {
+        while (j < n) {
             merged[k++] = nums2[j++];
         }
 
