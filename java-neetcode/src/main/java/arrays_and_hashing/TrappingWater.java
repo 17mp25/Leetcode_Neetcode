@@ -25,7 +25,7 @@ public class TrappingWater {
                 else{
                     res+=rightMax-height[right];
                 }
-                right--;
+                right=right-1;
             }
         }
         return res;
