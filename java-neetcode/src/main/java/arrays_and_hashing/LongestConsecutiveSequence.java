@@ -47,7 +47,7 @@ public class LongestConsecutiveSequence {
         return longestStreak;
     }
     public static void main(String[] args) {
-        int[] nums = {1,3,4,5,2,7,100,101,105,104,103,102,106};
+        int[] nums = {1,3,4,5,2,7,100,101,105,103,102,106};
         String s = "aabccdefg";
         //System.out.println(longConsecutiveCharInString(s)); // Output: 10 (for
         System.out.println(l(nums)); // Output: 4
