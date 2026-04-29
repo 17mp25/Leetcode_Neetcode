@@ -13,7 +13,7 @@ public class ContainsDuplicate {
             if(nums[i]==nums[j]){
                 return true;
             }
-            j++;
+            j=j+1;
         }
         return false;
     }
