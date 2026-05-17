@@ -5,7 +5,7 @@ import java.util.*;
 public class GroupAnagrams {
 
     public static void main(String[] args) {
-            String[] strs = {"eat", "tea", "tan", "ate", "nat"};
+            String[] strs = {"eat", "tea", "tan", "ate"};
             GroupAnagrams ga = new GroupAnagrams();
             List<List<String>> result = ga.groupAnagrams(Arrays.asList(strs));
             System.out.println(result);
